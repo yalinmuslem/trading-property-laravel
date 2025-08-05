@@ -7,11 +7,13 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    public function show()
+    public function show(Request $request)
     {
         $userModel = new UserModel();
+        $users = $userModel->getAllUsers($request);
+
         return response()->json([
-            'user' => $userModel->getAllUsers(),
+            'user' => $users,
         ]);
     }
 
