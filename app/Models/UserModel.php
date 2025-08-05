@@ -23,4 +23,9 @@ class UserModel extends Model
     {
         return $this->where('name', $name)->first();
     }
+
+    protected static function factory()
+    {
+        return \Database\Factories\UserPropFactory::new();
+    }
 }
